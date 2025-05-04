@@ -47,6 +47,7 @@ public class MemberController extends Controller {
             case 3: // 로그아웃 처리, 다시 로그인 화면으로 이동
                 MemberSession.logout();
                 Router.change(MemberLoginController.class);
+                break;
             case 4:
                 if (isAdmin()) { // 관리자일때 사용가능 메뉴
                     Router.change(MemberAdminController.class);
