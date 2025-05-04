@@ -11,7 +11,7 @@ import static org.koreait.member.MemberSession.isLogin;
 
 public class MemberController extends Controller {
     public MemberController() {
-        setMenus(isAdmin() ? List.of("1", "2", "3", "4") : List.of("1", "2", "3"));
+        setMenus(isAdmin() ? List.of("1", "2", "3", "4") : List.of("1", "2"));
     }
 
     @Override
