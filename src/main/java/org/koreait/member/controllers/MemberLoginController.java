@@ -3,7 +3,6 @@ package org.koreait.member.controllers;
 import org.koreait.global.exceptions.CommonException;
 import org.koreait.global.router.Controller;
 import org.koreait.global.router.Router;
-import org.koreait.main.controllers.MainController;
 import org.koreait.member.services.MemberLoginService;
 
 import java.util.Scanner;
