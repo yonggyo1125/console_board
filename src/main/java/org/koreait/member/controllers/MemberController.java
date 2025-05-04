@@ -10,12 +10,11 @@ import static org.koreait.member.MemberSession.isAdmin;
 import static org.koreait.member.MemberSession.isLogin;
 
 public class MemberController extends Controller {
-    public MemberController() {
-        setMenus(isAdmin() ? List.of("1", "2", "3", "4") : List.of("1", "2"));
-    }
 
     @Override
     public void show() {
+        setMenus(isAdmin() ? List.of("1", "2", "3", "4") : List.of("1", "2"));
+        
         StringBuffer sb = new StringBuffer(5000);
         if (isLogin()) { // 로그인 상태
             sb.append("1. 회원정보\n")
