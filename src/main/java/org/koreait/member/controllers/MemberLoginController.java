@@ -40,8 +40,8 @@ public class MemberLoginController extends Controller {
                 }
             }
 
-            // 로그인 완료 후 메인 메뉴 이동
-            Router.change(MainController.class);
+            // 로그인 완료 후 회원관리 메인 메뉴 이동
+            Router.change(MemberController.class);
         });
     }
 
