@@ -8,4 +8,6 @@ public class RequestBoard {
     private String poster;
     private String subject;
     private String content;
+    private String name; // 회원명
+    private String email; // 회원 이메일
 }

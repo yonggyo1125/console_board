@@ -3,6 +3,7 @@ package org.koreait.board.controllers;
 import org.koreait.board.services.BoardSaveService;
 import org.koreait.global.exceptions.CommonException;
 import org.koreait.global.router.Controller;
+import org.koreait.global.router.Router;
 import org.koreait.member.MemberSession;
 import org.koreait.member.entities.Member;
 
@@ -17,12 +18,13 @@ public class BoardWriteController extends Controller {
 
         Scanner sc = new Scanner(System.in);
         RequestBoard form = new RequestBoard();
-        // 로그인한 회원 이름으로 작성자를 완성
-        Member member = MemberSession.getMember();
-        form.setPoster(member.getName());
+
 
         setPrompt(() -> {
             while(true) {
+                // 로그인한 회원 이름으로 작성자를 완성
+                Member member = MemberSession.getMember();
+                form.setPoster(member.getName());
                 try {
                     String subject = inputEach("1. 제목", sc);
                     form.setSubject(subject);
@@ -31,6 +33,10 @@ public class BoardWriteController extends Controller {
                     form.setContent(content);
 
                     service.process(form);
+
+                    // 게시글 작성 완료 후 게시글 목록으로 이동
+                    Router.change(BoardListController.class);
+                    break;
                 } catch (CommonException e) {
                     printError(e);
                 }

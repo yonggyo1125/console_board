@@ -30,12 +30,12 @@ public class BoardSaveService {
          */
         if (form.getSeq() > 0L) { // 수정
             item.setSeq(form.getSeq());
-            mapper.register(item);
+            mapper.update(item);
         } else { // 추가
             // 회원정보는 수정 될 수 없고 추가시에만 등록
             Member member = MemberSession.getMember();
             item.setMemberSeq(member.getSeq());
-            mapper.update(item);
+            mapper.register(item);
         }
 
 

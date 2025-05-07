@@ -13,3 +13,17 @@ CREATE TABLE member (
 	PRIMARY KEY(seq)
 );
 ```
+
+```sql
+CREATE TABLE BOARD_DATA (
+	seq BIGINT AUTO_INCREMENT,
+	poster VARCHAR(45) NOT NULL,
+	subject VARCHAR(255) NOT NULL,
+	content TEXT NOT NULL,
+	memberSeq INT,
+	regDt DATETIME DEFAULT CURRENT_TIMESTAMP,
+	modDt DATETIME,
+	FOREIGN KEY(memberSeq) REFERENCES member(seq),
+	PRIMARY KEY(seq)
+);
+```

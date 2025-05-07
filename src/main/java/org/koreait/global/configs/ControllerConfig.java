@@ -1,8 +1,12 @@
 package org.koreait.global.configs;
 
 import org.koreait.board.controllers.BoardController;
+import org.koreait.board.controllers.BoardListController;
+import org.koreait.board.controllers.BoardViewController;
 import org.koreait.board.controllers.BoardWriteController;
+import org.koreait.board.services.BoardInfoService;
 import org.koreait.board.services.BoardSaveService;
+import org.koreait.global.services.Bean;
 import org.koreait.global.services.ServiceContainer;
 import org.koreait.main.controllers.MainController;
 import org.koreait.member.controllers.*;
@@ -73,5 +77,17 @@ public class ControllerConfig {
     public BoardWriteController boardWriteController() {
         BoardSaveService service = ServiceContainer.getBean(BoardSaveService.class);
         return new BoardWriteController(service);
+    }
+
+    @Bean
+    public BoardListController boardListController() {
+        BoardInfoService service = ServiceContainer.getBean(BoardInfoService.class);
+        return new BoardListController(service);
+    }
+
+    @Bean
+    public BoardViewController boardViewController() {
+        BoardInfoService service = ServiceContainer.getBean(BoardInfoService.class);
+        return new BoardViewController(service);
     }
 }

@@ -13,4 +13,5 @@
     </root>
 
     <logger name="org.koreait.member.mappers" level="DEBUG" />
+    <logger name="org.koreait.board.mappers" level="DEBUG" />
 </configuration>
