@@ -16,7 +16,7 @@ public class BoardInfoService {
         updateMapper();
     }
 
-    private void updateMapper() {
+    public void updateMapper() {
         // 조회는 매번 갱신이 필요하므로 새로 mapper  생성
         mapper = DBConn.getInstance().getSession().getMapper(BoardMapper.class);
     }

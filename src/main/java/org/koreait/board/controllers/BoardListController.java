@@ -13,18 +13,15 @@ import java.util.Scanner;
 public class BoardListController extends Controller {
     private final BoardInfoService service;
     private List<BoardData> items;
+    private SearchForm search;
 
     public BoardListController(BoardInfoService service) {
         this.service = service;
-
-        // 초기 출력할 게시글 조회
-        SearchForm s = new SearchForm();
-        items = service.getList(s);
+        search = new SearchForm();
 
         Scanner sc = new Scanner(System.in);
         setPrompt(() -> {
-            SearchForm search = new SearchForm();
-
+            search = new SearchForm();
             while(true) {
                 try {
                     System.out.println("조회할 항목을 선택하세요.");
@@ -61,7 +58,6 @@ public class BoardListController extends Controller {
                         }
                         return;
                     }
-                    items = service.getList(search);
                     show(); // 화면 갱신
                 } catch (CommonException e) {
                     printError(e);
@@ -73,6 +69,9 @@ public class BoardListController extends Controller {
 
     @Override
     public void show() {
+        // 초기 출력할 게시글 조회
+        items = service.getList(search);
+
         printLine();
         System.out.println("게시글번호|작성자|제목|내용");
         if (items == null || items.isEmpty()) {
