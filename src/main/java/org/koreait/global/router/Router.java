@@ -3,6 +3,7 @@ package org.koreait.global.router;
 import org.koreait.global.configs.ControllerConfig;
 import org.koreait.main.controllers.MainController;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
@@ -50,6 +51,17 @@ public class Router {
      * @param clazz
      */
     public void _change(Class<?> clazz) {
+//        /* 화면 갱신  - 동작 안함 S */
+//        String os = System.getProperty("os.name");
+//        try {
+//            if (os.contains("Windows")) {
+//                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+//            } else {
+//                Runtime.getRuntime().exec("clear");
+//            }
+//        } catch (Exception e) {e.printStackTrace();}
+//        /* 화면 갱신 E */
+
         Controller controller = controllers.get(clazz);
         controller.run();
 
