@@ -19,22 +19,25 @@ public class MemberService {
 
     @Bean
     public MemberJoinValidator joinValidator() {
+
         return new MemberJoinValidator(memberMapper());
     }
 
     @Bean
     public MemberJoinService joinService() {
+
         return new MemberJoinService(memberMapper(), joinValidator());
     }
 
     @Bean
     public MemberInfoService infoService() {
+
         return new MemberInfoService(memberMapper());
     }
 
     @Bean
     public MemberLoginValidator loginValidator() {
-        return new MemberLoginValidator(infoService());
+            return new MemberLoginValidator(infoService());
     }
 
     @Bean

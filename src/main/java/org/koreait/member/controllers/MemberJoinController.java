@@ -24,9 +24,9 @@ public class MemberJoinController extends Controller {
          */
         JoinForm form = new JoinForm();
         setPrompt(() -> {
+            Scanner sc = new Scanner(System.in);
             while (true) {
                 try {
-                    Scanner sc = new Scanner(System.in);
                     String email = inputEach("1. 이메일", sc);
                     form.setEmail(email);
 

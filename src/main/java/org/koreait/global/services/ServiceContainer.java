@@ -92,6 +92,7 @@ public class ServiceContainer {
             instance = new ServiceContainer();
 
             instance.register(MemberService.class);
+
             instance.init();
         }
 
