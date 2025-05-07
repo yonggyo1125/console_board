@@ -10,9 +10,13 @@ import java.util.List;
 
 public class BoardInfoService {
 
-    private final BoardMapper mapper;
+    private  BoardMapper mapper;
 
     public BoardInfoService() {
+        updateMapper();
+    }
+
+    private void updateMapper() {
         // 조회는 매번 갱신이 필요하므로 새로 mapper  생성
         mapper = DBConn.getInstance().getSession().getMapper(BoardMapper.class);
     }
@@ -24,6 +28,7 @@ public class BoardInfoService {
      * @return
      */
     public BoardData get(long seq) {
+        updateMapper();
         return mapper.get(seq).orElseThrow(BoardNotFoundException::new);
     }
 
@@ -34,6 +39,7 @@ public class BoardInfoService {
      * @return
      */
     public List<BoardData> getList(SearchForm search) {
+        updateMapper();
         // 페이징 기본값 처리 S
         int page = Math.max(search.getPage(), 1);
         int limit = search.getLimit();
